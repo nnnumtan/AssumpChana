@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>What is Assump Chana</title>
+    <style>
+        body {
+            background-color: #F8D568;
+        }
+
+        .subject {
+            margin-left: 4%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navber -->
+        <nav class="navbar bg-light fixed-top">
+            <div class="container-fluid">
+                <div class="col">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="home.html">Assump Chana</a>
+                </div>
+                <!-- LOGIN BUTTON-->
+                <a>
+                    <button class="btn btn-outline-success" type="submit" id="btnauth">เข้าสู่ระบบ</button>
+                </a>
+
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Assump Chana</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">ห้องความรู้</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="timemedicine.html">ตารางกินยา</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="reminder.html">เตือนกินยา</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="hospital.html">ติดต่อโรงพยาบาล</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="pharmacy.html">ร้านขายยาใกล้ฉัน</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="personalinfo.html">ข้อมูลส่วนตัว</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="bodyinfo.html">ขนาดร่างกาย</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="bedtime.html">การนอน</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="game.html">เกมส์</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    เกี่ยวกับเรา
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item active" href="whatis.html">What is Assump Chana</a></li>
+                                    <li><a class="dropdown-item" href="contractus.html">ติดต่อเรา</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <!-- content -->
+    <div class="card container mb-3 text-center" style="margin-top: 5%;">
+        <!-- Image -->
+        <div class="">
+            <img src="./img/logo2.jpg" class="w-25" alt="">
+        </div>
+        <!-- เราต้องการ -->
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="card-body text-start">
+                    <h3>เราต้องการ...</h3>
+                    <br>
+                    <p>1. พัฒนาระบบดูแลระบบผู้ป่วยและผู้พิการอย่างมีประสิทธิภาพ<br>
+                        2. อำนวยความสะดวกให้แก่ผู้ป่วยและผู้ดูแลผู้ป่วย<br>
+                        3. พัฒนาศักยภาพของผู้เรียนในการ</p>
+                </div>
+            </li>
+            <li class="list-group-item text-start">
+                <h3>ที่มาและความสำคัญ</h3>
+                <br>
+                <p> ในปัจจุบันการดูแลผู้ป่วย เป็นเรื่องที่ใกล้ตัวมากขึ้น เพราะนอกจากการรักษาตัวในโรง
+                    พยาบาลแล้วยังมี การดูแลผู้ป่วยในบ้าน ที่หลายๆบ้านกำลังประสบปัญหาอยู่ตอนนี้ ไม่ว่าจะ
+                    เป็นเรื่อง ทานอาหาร การทานยาให้ตรงเวลา การขอความช่วยเหลือในยามฉุกเฉิน
+                    ส่งผลกระทบต่อครอบครัวที่ต้องคอยดูแลผู้ป่วยอย่าง หลีกเลี่ยงไม่ได้
+                    ดังนั้นทางคณะผู้จัดทำจึงได้คิดค้นพัฒนาระบบดูแลผู้ป่วยขึ้นมาเพื่อจัดระบบเตือนกินยา
+                    ค้นหาเบอร์โทรโรงพยาบาลใกล้เคียง ทำให้สะดวกสำหรับผู้ป่วยและผู้ดูแลมากยิ่งขึ้น</p>
+            </li>
+            <li class="list-group-item text-start">
+                <h3>วิธีการดำเนินการ</h3>
+                <br>
+                <ul>สมมุติฐาน
+                </ul>
+                <ul>ตัวแปร
+                    <li class="subject">ตัวแปรต้น 1. ระบบดูแลผู้ป่วย</li>
+                    <li class="subject">ตัวแปรตาม 1. ผลการใช้งานระบบ</li>
+                    <li class="subject">ตัวแปรควบคุม 1. อินเตอร์เน็ต</li>
+                </ul>
+                <ul>ขอบเขต
+                    <li class="subject">เพื่อพัฒนาระบบดูแลผู้ป่วยได้อย่างมีประสิทธิภาพ</li>
+                    <li class="subject">เพื่อพัฒนาศักยภาพของผู้เรียนในการความรู้มาประยุกต์ใช้ในชีวิตประจำวัน</li>
+                    <li class="subject">เพื่ออำนวยความสะดวกให้แก่ผู้ป่วยและผู้ดูแล</li>
+                </ul>
+                <ul>ประโยชน์
+                    <li class="subject">ได้ระบบดูแลผู้ป่วยอย่างมีประสิทธิภาพ</li>
+                    <li class="subject">สามารถอำนวยความสะดวกแก่ผู้ดูแลและผู้ป่วย</li>
+                    <li class="subject">สามารถนำระบบไปใช้กับผู้ป่วยได้จริงในชีวิตประจำวัน</li>
+                </ul>
+            </li>
+            <li class="list-group-item text-start">
+                <h3>ผลการศึกษา</h3>
+                <br>
+                <p>จากการ์ศึกษาการทำงานของระบบดูแลผู้ป่วย (Patient Service
+                    System) สามารถใช้งานได้จริง และเป็นเครื่องมือช่วยในการดูแล
+                    ระบบผู้ป่วย พร้อมทั้งมีเครื่องมือช่วยอำนวยความสะดวกในการ
+                    ปฐมพยาบาลเบื้องต้น ทำให้เกิดความสะดวกสบายในการดำเนินชีวิต
+                    ประจำวัน</p>
+            </li>
+            <li class="list-group-item text-start">
+                <h3>วิธีการดำเนินการ</h3>
+                <br>
+                <ul>
+                    <p>
+                        <li>ประชุมกลุ่ม/วางแผน</li>
+                        <li>ศึกษาการสร้างระบบด้วยชอฟต์แวร์ figma</li>
+                        <li>ออกแบขระบบโดยใช้วิธีการ ร่างสตอรี่ขอร์ด</li>
+                        <li>สร้างระบบดูแลผู้ป่วย</li>
+                        <li>ทดสอบระบบ</li>
+                        <li>ปรับปรุงแก้ไขระบบให้สมบูรณ์</li>
+                        <li>นำไปใช้กับกลุ่มเป้าหมาย</li>
+                        <li>ศึกษาผลที่ใด้ แล้วนำไปพัฒนาต่อยอดให้มีประสิทธิภาพมากยิ่งขึ้น</li>
+                    </p>
+                </ul>
+            </li>
+            <li class="list-group-item text-start">
+                <img src="./img/logo.png" class="w-25" alt="">
+                <div class="justify-content-center" style="width: 300px; margin-left: 20%; padding-bottom:2%;">
+                    <ul class="list-group">
+                        <li class="list-group-item"><img src="/img/icon-line-12.png"
+                                style="width: 50px; margin-right:2%;" alt=""><a href="https://lin.ee/5yysWaQ"><img
+                                    src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน"
+                                    height="36" border="0"></a></li>
+                        <li class="list-group-item"><img src="/img/heart-icon2.png" style="width: 50px; margin-right:2%"
+                                alt=""><a href="contractus.html"><button class="btn"
+                                    style="background-color: #E54B89; width: 120px; color: white">ติดต่อเรา</button></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+</body>
+
+<script type="module">
+     // Import the functions you need from the SDKs you need
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+     import { getAuth, signOut, onAuthStateChanged } from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.15.0/firebase-auth.min.js";
+     // TODO: Add SDKs for Firebase products that you want to use
+     // https://firebase.google.com/docs/web/setup#available-libraries
+ 
+     // Your web app's Firebase configuration
+     const firebaseConfig = {
+         apiKey: "AIzaSyBizgZbCCAYS7qzFkDwX6qrbgj3yFkGQHY",
+         authDomain: "assump-chana.firebaseapp.com",
+         projectId: "assump-chana",
+         storageBucket: "assump-chana.appspot.com",
+         messagingSenderId: "593385574351",
+         appId: "1:593385574351:web:454331c8d1ca255912ccba",
+         measurementId: "G-GN25FCXHZ7"
+     };
+ 
+     // Initialize Firebase
+     const app = initializeApp(firebaseConfig); 
+     const auth = getAuth(app);
+     const user = auth.currentUser;
+ 
+     (function () {
+         onAuthStateChanged(auth, (user) => {
+             if (user) {
+                 // User is signed in, see docs for a list of available properties
+                 // https://firebase.google.com/docs/reference/js/firebase.User
+                 const uid = user.uid;
+                 document.getElementById("btnauth").innerHTML = 'ออกจากระบบ'
+                 document.getElementById("btnauth").className = 'btn btn-warning'
+                 console.log('login')
+                 console.log(user.uid)
+ 
+             } else {
+                 // User is signed out
+                 console.log('ไม่มีการเข้าสู่ระบบ')
+                 // ...
+             }
+             //const user1 = FirebaseAuth.getInstance().getCurrentUser();
+         })
+     })()
+     document.getElementById('btnauth').addEventListener('click', function () {
+         onAuthStateChanged(auth, (user) => {
+             if (!user) {
+                 window.location.href = 'login.html'
+                 console.log(user.email)
+             } else if (user) {
+                 signOut(auth).then(() => {
+                     // Sign-out successful.
+                     alert("Sign-out successful");
+                     window.location.href = 'login.html'
+                 }).catch((error) => {
+                     // An error happened.
+                     alert(error);
+                 });
+             }
+         })
+     })
+</script>
+
+</html>
