@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+  <title>เข้าสู่ระบบ</title>
+  <style>
+    body {
+      background-color: #FFFFD4;
+    }
+
+    .tx {
+      font-size: 10px;
+      margin-bottom: 7px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" style="padding-top:10%;padding-bottom: 10%">
+    <div class="row justify-content-center">
+      <div class="col-9">
+
+        <div class="card" style="border-radius: 20px;">
+          <div class="row no-gutters">
+            <div class="card-body p-4 col-5">
+              <h2 class="head-title">กรุณาเข้าสู่ระบบ</h2>
+              <div class="input-group mt-4 d-flex align-items-center">
+                <i class="far fa-user " style="height: 16px;width: 16px; margin-right: 3px"></i>
+                <input class="form-control input-bottom-border" placeholder="อีเมล์" type="text" id="email" name="email"
+                  required>
+              </div>
+              <div class="input-group mt-4 mb-4 d-flex align-items-center">
+                <i class="fas fa-lock" style="height: 16px;width: 16px; margin-right: 3px"></i>
+                <input class="form-control input-bottom-border" placeholder="รหัสผ่าน" type="password" id="password"
+                  name="password" required>
+              </div>
+
+              <div class="input-group justify-content-center mt-3">
+                <button class="btn" style="height: 40px;
+                                            width:100%;
+                                            background-color: #F8D568;
+                                            border-radius: 4px ;
+                                            border-color: #F8D568;
+                                            color: white;" id="loginbtn">เข้าสู่ระบบ
+              </div>
+              <div class="input-group justify-content-center mt-3" style="height:40px;padding: 2%">
+                <!-- <span>register</span> -->
+                <b><a href="register.html" data-toggle="modal" data-target="#registerModal" class="ml-1"
+                    style="color: black">สมัครสมาชิก</a></b>
+              </div>
+              <div class="row text-center">
+                <p class="tx">ลงทะเบียนด้วยอีเมล์</p>
+                <p class="tx">การกดเข้าสู่ระบบแสดงว่าคุณได้ยอมรับข้อตกลง</p>
+                <p class="tx">และนโยบายความเป็นส่วนตัวฝของเราแล้ว</p>
+              </div>
+            </div>
+
+            <!--RIGHT PANEL-->
+            <div class="col-7 login-pane" style="background: #F8D568;
+                                         background-image: url('/img/logo.png');
+                                         background-size:300px;
+                                         background-position: center;
+                                         background-repeat: no-repeat;
+                                         border-top-right-radius: 20px;
+                                         border-bottom-right-radius: 20px;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <!-- <script src="/index.js"></script> -->
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { getAuth, signInWithEmailAndPassword } from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.15.0/firebase-auth.min.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBizgZbCCAYS7qzFkDwX6qrbgj3yFkGQHY",
+    authDomain: "assump-chana.firebaseapp.com",
+    projectId: "assump-chana",
+    storageBucket: "assump-chana.appspot.com",
+    messagingSenderId: "593385574351",
+    appId: "1:593385574351:web:454331c8d1ca255912ccba",
+    measurementId: "G-GN25FCXHZ7"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+
+  document.getElementById("loginbtn").addEventListener("click", function () {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    if (!email || !password) {
+      alert('อีเมล์หรือรหัสผ่านไม่ถูกต้อง กรุณากรอกข้อมูลอีกครั้ง')
+    }
+    else {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+
+          // Signed in 
+          alert('ยินดีต้อนรับสู่ Assump Chana')
+          window.location.href = 'home.html'
+          // ...
+        })
+        .catch((error) => {
+          if (error.message === 'Firebase: Error (auth/invalid-email).'
+            || error.message === 'Firebase: Error (auth/wrong-password).'
+            || error.message === 'Firebase: Error (auth/user-not-found).') {
+            alert('อีเมล์หรือรหัสผ่านไม่ถูกต้อง')
+          } else {
+            alert('ระบบเกิดข้อผิดพลาด')
+          }
+          console.log(error.message)
+        });
+    }
+  });
+</script>
+
+</html>

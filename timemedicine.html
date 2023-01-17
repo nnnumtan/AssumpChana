@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/902145a1a9.js" crossorigin="anonymous"></script>
+    <title>ตารางกินยา</title>
+
+    <style>
+        body {
+            background: #f8d568;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navber -->
+    <div class="navbar">
+        <nav class="navbar bg-light fixed-top">
+            <div class="container-fluid">
+                <div class="col">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="home.html">Assump Chana</a>
+                </div>
+                <!-- LOGIN BUTTON-->
+                <a>
+                    <button class="btn btn-outline-success" type="submit" id="btnauth">
+                        เข้าสู่ระบบ
+                    </button>
+                </a>
+
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            Assump Chana
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">ห้องความรู้</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="timemedicine.html">ตารางกินยา</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="reminder.html">เตือนกินยา</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="hospital.html">ติดต่อโรงพยาบาล</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="pharmacy.html">ร้านขายยาใกล้ฉัน</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="personalinfo.html">ข้อมูลส่วนตัว</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="bodyinfo.html">ขนาดร่างกาย</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="bedtime.html">การนอน</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="game.html">เกมส์</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    เกี่ยวกับเรา
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="whatis.html">What is Assump Chana</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="contractus.html">ติดต่อเรา</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- content -->
+    <div class="container">
+        <div class="row justify-content-center text-center" style="margin-top: 5%">
+            <div class="card">
+                <div class="card-header text-start" style="margin-bottom: 1%">
+                    <h3>ตารางกินยา</h3>
+                </div>
+                <ul id="selected" class="list-group list-group-flush text-start" style="padding-left: 4%"></ul>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content text-start">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                แก้ไขการตั้งค่า
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">ชื่อยา</label>
+                                    <input type="email" class="form-control" id="drugName" placeholder="Paracetamol" />
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <label for="exampleFormControlInput1" class="form-label">จำนวน</label>
+                                        <input type="email" class="form-control" id="amount" placeholder="1 หรือ 1/2" />
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="exampleFormControlInput1" class="form-label">หน่วย</label>
+                                        <input type="email" class="form-control" id="unit"
+                                            placeholder="เม็ด หรือ มิลลิลิตร" />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">ข้อความ</label>
+                                    <input type="email" class="form-control" id="msg" placeholder="ทานหลังอาหารทันที" />
+                                </div>
+                                <div style="margin-bottom: 2%">
+                                    <label class="form-label" for="birthdaytime">ตั้งค่าแจ้งเตือน</label>
+                                    <input data-format="hh:mm" class="form-control" type="time" id="timer" name="timer"
+                                        style="width: 20%" />
+                                    <!-- <input type="submit"> -->
+                                </div>
+                                <div class="container justify-content-center" style="margin-bottom: 2%">
+                                    <div class="row" style="margin-left: 15%">
+                                        <!-- ซ้าย -->
+                                        <div class="col-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input checkdate" type="checkbox" value="1"
+                                                    id="mo" />
+                                                <label class="form-check-label" for="mon">
+                                                    แจ้งเตือนทุกวันจันทร์
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input checkdate" type="checkbox" value="3"
+                                                    id="we" />
+                                                <label class="form-check-label" for="we">
+                                                    แจ้งเตือนทุกวันพุธ
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input checkdate" type="checkbox" value="5"
+                                                    id="fr" />
+                                                <label class="form-check-label" for="fr">
+                                                    แจ้งเตือนทุกวันศุกร์
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- ขวา -->
+                                        <div class="col-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input checkdate" type="checkbox" value="0"
+                                                    id="su" />
+                                                <label class="form-check-label" for="su">
+                                                    แจ้งเตือนทุกวันอาทิตย์
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input checkdate" type="checkbox" value="2"
+                                                    id="tu" />
+                                                <label class="form-check-label" for="tu">
+                                                    แจ้งเตือนทุกวันอังคาร
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input checkdate" type="checkbox" value="4"
+                                                    id="th" />
+                                                <label class="form-check-label" for="th">
+                                                    แจ้งเตือนทุกวันพฤหัสบดี
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input checkdate" type="checkbox" value="6"
+                                                    id="sa" />
+                                                <label class="form-check-label" for="sa">
+                                                    แจ้งเตือนทุกวันเสาร์
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                ปิด
+                            </button>
+                            <button type="button" class="btn btn-primary" id="savechange">
+                                บันทึก
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import {
+            getAuth,
+            onAuthStateChanged,
+            signOut,
+        } from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.15.0/firebase-auth.min.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+        import {
+            getFirestore,
+            doc,
+            setDoc,
+            addDoc,
+            collection,
+            getDocs,
+            where,
+            query,
+            deleteDoc,
+            updateDoc,
+            arrayUnion,
+            arrayRemove
+        } from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.15.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBizgZbCCAYS7qzFkDwX6qrbgj3yFkGQHY",
+            authDomain: "assump-chana.firebaseapp.com",
+            projectId: "assump-chana",
+            storageBucket: "assump-chana.appspot.com",
+            messagingSenderId: "593385574351",
+            appId: "1:593385574351:web:454331c8d1ca255912ccba",
+            measurementId: "G-GN25FCXHZ7",
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const user = auth.currentUser;
+
+        (async function () {
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    const uid = user.uid;
+                    document.getElementById("btnauth").innerHTML = "ออกจากระบบ";
+                    document.getElementById("btnauth").className = "btn btn-warning";
+                    console.log("login");
+                } else {
+                    // User is signed out
+                    console.log("ไม่มีการเข้าสู่ระบบ");
+                    // ...
+                }
+                try {
+                    const q = query(
+                        collection(db, "Times"),
+                        where("accountId", "==", user.uid), where('amountunit', '!=', '. .')
+                    );
+                    const docsSnap = await getDocs(q)
+                    docsSnap.forEach((docc) => {
+                        console.log(docc.data());
+                        console.log(docc.data().info.every);
+                        let date = '';
+                        let split = docc.data().info.every.split(',')
+                        for (var i = 0; i < split.length; i++) {
+                            if (split[i] === "Sun") {
+                                date += "วันอาทิตย์ ";
+                            } else if (split[i] === "Mon") {
+                                date += "วันจันทร์ ";
+                            } else if (split[i] === "Tue") {
+                                date += "วันอังคาร ";
+                            } else if (split[i] === "Wed") {
+                                date += "วันพุธ ";
+                            } else if (split[i] === "Thu") {
+                                date += "วันพฤหัสบดี ";
+                            } else if (split[i] === "Fri") {
+                                date += "วันศุกร์ ";
+                            } else if (split[i] === "Sat") {
+                                date += "วันเสาร์ ";
+                            }
+                        }
+
+                        let selected = document.createElement("li");
+                        selected.className = "row";
+                        let p_time = document.createElement("p");
+                        let p_drugName = document.createElement("p");
+                        let p_amountunit = document.createElement("p");
+                        let p_msg = document.createElement("p");
+                        let p_repaet = document.createElement("p");
+                        let btnEdit = document.createElement("button");
+                        let btnDel = document.createElement("button");
+                        btnDel.addEventListener("click", async function () {
+                            if (confirm("กรุณายืนยันการการลบแจ้งเตือน")) {
+                                const docId = docc.id;
+                                await deleteDoc(doc(db, "Times", docId));
+                                location.reload();
+                            }
+                        });
+                        btnEdit.addEventListener("click", function () {
+                            const docId = docc.id;
+                            $("#exampleModal").modal("toggle");
+                            let arr = docc.data().amountunit.split(" ");
+                            $("#amount").val(arr[0]);
+                            $("#unit").val(arr[1]);
+                            $("#drugName").val(docc.data().drugName);
+                            $("#msg").val(docc.data().label);
+                            $("#timer").val(docc.data().alarm);
+
+                            $("#su").prop("checked", false);
+                            $("#mo").prop("checked", false);
+                            $("#tu").prop("checked", false);
+                            $("#we").prop("checked", false);
+                            $("#th").prop("checked", false);
+                            $("#fr").prop("checked", false);
+                            $("#sa").prop("checked", false);
+                            if (docc.data().info.every === "Sun") {
+                                $("#su").prop("checked", true);
+                            } else if (docc.data().info.every === "Mon") {
+                                $("#mo").prop("checked", true);
+                            } else if (docc.data().info.every === "Tue") {
+                                $("#tu").prop("checked", true);
+                            } else if (docc.data().info.every === "Wed") {
+                                $("#we").prop("checked", true);
+                            } else if (docc.data().info.every === "Thu") {
+                                $("#th").prop("checked", true);
+                            } else if (docc.data().info.every === "Fri") {
+                                $("#fr").prop("checked", true);
+                            } else if (docc.data().info.every === "Sat") {
+                                $("#sa").prop("checked", true);
+                            }
+
+                            document.getElementById("savechange").addEventListener("click", function () {
+                                editAlarm(docc.id);
+                            });
+                        });
+                        btnEdit.id = "edit";
+                        let col1 = document.createElement("div");
+                        col1.className = "col-6";
+                        let col2 = document.createElement("div");
+                        col2.className = "col-6 text-end";
+                        col2.style = "padding-right: 5%";
+                        let hr = document.createElement("hr");
+                        //Switch On-Off
+                        let divSw = document.createElement("div");
+                        divSw.className = "switch-toggle";
+                        let ipt = document.createElement("input");
+                        ipt.type = "checkbox";
+                        ipt.id = "onoff";
+                        let lb = document.createElement("label");
+                        lb.htmlFor = "onoff";
+                        // btnEdit.onclick = editAlarm()
+                        btnEdit.className = "btn text-light bg-warning";
+                        btnDel.className = "btn text-light bg-danger ";
+                        btnEdit.style = "margin: 1%";
+                        btnEdit.innerHTML = "แก้ไข";
+                        btnDel.innerHTML = "ลบ";
+                        p_time.innerHTML = "เวลา: " + docc.data().alarm;
+                        p_amountunit.innerHTML = "จำนวน: " + docc.data().amountunit;
+                        p_drugName.innerHTML = "ชื่อยา: " + docc.data().drugName;
+                        p_msg.innerHTML = "ช้อความ: " + docc.data().label;
+                        p_repaet.innerHTML = "การเตือน: " + date;
+                        col1.appendChild(p_drugName);
+                        col1.appendChild(p_amountunit);
+                        col1.appendChild(p_time);
+                        col1.appendChild(p_msg);
+                        col1.appendChild(p_repaet);
+                        col2.appendChild(btnEdit);
+                        col2.appendChild(btnDel);
+                        selected.appendChild(col1);
+                        selected.appendChild(col2);
+                        document.getElementById("selected").appendChild(selected);
+                        document.getElementById("selected").appendChild(hr);
+                    });
+                } catch (error) {
+                    console.log(error);
+                }
+            });
+        })();
+
+        //sign out
+        document.getElementById("btnauth").addEventListener("click", function () {
+            onAuthStateChanged(auth, (user) => {
+                if (!user) {
+                    window.location.href = "login.html";
+                } else if (user) {
+                    signOut(auth)
+                        .then(() => {
+                            // Sign-out successful.
+                            alert("Sign-out successful");
+                            window.location.href = "login.html";
+                        })
+                        .catch((error) => {
+                            // An error happened.
+                            alert(error);
+                        });
+                }
+            });
+        });
+
+        document
+            .getElementById("savechange")
+            .addEventListener("click", editAlarm);
+
+        //edit alarm
+        async function editAlarm(docId) {
+            const drugName = document.getElementById("drugName").value;
+            const amount = document.getElementById("amount").value;
+            const label = document.getElementById("msg").value;
+            const unit = document.getElementById("unit").value;
+            const amountunit = amount + " " + unit;
+            const timer = document.getElementById("timer").value;
+            var checkboxes = document.getElementsByClassName("checkdate");
+            var repeat = "";
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    if (checkboxes[i].value === "0") {
+                        repeat += 'Sun '
+                    } else if (checkboxes[i].value === "1") {
+                        repeat += 'Mon '
+                    } else if (checkboxes[i].value === "2") {
+                        repeat += 'Tue '
+                    } else if (checkboxes[i].value === "3") {
+                        repeat += 'wed '
+                    } else if (checkboxes[i].value === "4") {
+                        repeat += 'Thu '
+                    } else if (checkboxes[i].value === "5") {
+                        repeat += 'Fri '
+                    } else if (checkboxes[i].value === "6") {
+                        repeat += 'Sat '
+                    }
+                }
+            }
+            console.log(repeat);
+            try {
+                console.log();
+                onAuthStateChanged(auth, (user) => {
+                    updateDoc(doc(db, "Times", docId), {
+                        drugName: drugName,
+                        amountunit: amountunit,
+                        accountId: user.uid,
+                        alarm: timer,
+                        info: {
+                            every: repeat,
+
+                        },
+                        label: label,
+                    });
+                    alert("บันทึกสำเร็จ");
+                    setTimeout(function () {
+                        window.location.href = "timemedicine.html";
+                    }, 1000);
+                });
+            } catch (error) {
+                alert("แก้ไขไม่สำเร็จ");
+                console.log(error.message);
+            }
+        }
+    </script>
+</body>
+
+</html>
